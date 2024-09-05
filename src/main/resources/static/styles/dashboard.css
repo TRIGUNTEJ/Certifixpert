@@ -1,0 +1,790 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0.5em;
+    text-align: center;
+    width:100%;
+}
+
+.Company-logo img {
+    max-width: 75px;
+    height: 55px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    padding: 1em;
+    margin: 0 0.5em;
+    cursor: pointer;
+}
+.nav-links.Connect a {
+    cursor: pointer;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar-input {
+    flex: 1;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #F5EDED;
+    margin-left: 30%;
+    margin-right: 10px;
+    width: 700px;
+    height: 30px;
+    text-align: center;
+}
+.search-icon{
+    border-radius:5px;
+    background-color: white;
+    border: 1px solid black;
+    width: 50px;
+    height: 33px;
+    left:30%;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+.search-suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+    border: 1px solid #ccc;
+    background-color: white;
+    position: absolute;
+    top: 40px; 
+    left:35%;
+    width: calc(60% - 60px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.search-suggestions li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+.search-suggestions li:last-child {
+    border-bottom: none;
+}
+.search-suggestions li:hover, .search-suggestions .highlighted {
+    background-color: #EB9752;
+    color: white;
+}
+.user-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+    background-color: #EB9752; 
+    margin-left: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-initial {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 60px; /* Adjust this value as needed */
+    right: 10px; /* Ensure it's aligned with the user circle */
+    border-radius: 10px; /* Add some border radius for a rounded appearance */
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 12px; 
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.user-circle:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown-content a[href="/logout"] {
+    color: #E53935; 
+    font-weight: bold; 
+}
+.dropdown-content a[href="/logout"]:hover {
+    background-color: #FDD; 
+}
+
+.Sign-button button {
+    background-color: #232833;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height:400px;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 20px; /* Add border-radius for curves */
+}
+.login-form {
+    width: 300px;
+    height: 375px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-button {
+    background-color: #1E3753;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%; /* Make the button full width */
+}
+.regpopup {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height:470px;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 20px; /* Add border-radius for curves */
+}
+.register-form {
+    width: 300px;
+    height: 375px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.register-button {
+    background-color: #1E3753;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%; /* Make the button full width */
+}
+
+/* Updated styles for the "Sign in with Google" button */
+.social-buttons button {
+    background-color: white;
+    color: black;
+    width: 300px;
+    height: 35px;
+    border: 1.5px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+    padding: 0 10px; /* Add padding to the button */
+}
+
+.gg-logo img {
+    max-width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: 0; /* Reset margin to 0 on the left */
+}
+
+.login-form a { 
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #4285f4; /* Adjust the color as needed */
+    font-size: 0.9em;
+}
+
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 1.5em; /* Increase the font size as needed */
+    color: black; /* Change the color if desired */
+}
+.forgot-text{
+    position: absolute;
+    left: 0%;
+    top : 49%;
+}
+.Signup-text{
+    position: absolute;
+    left: 55%;
+    top : 49%;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.sections-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.section1 {
+    padding: 1em;
+    background-color: #ffd700;
+}
+
+.section2 {
+    padding: 1em;
+    background-color: #E57717;
+    color: white;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.section3 {
+    padding: 1em;
+    background-color: white;
+    color: #888;
+    font-size: 0.85em;
+}
+
+.slide {
+    padding: 2em;
+    display: none;
+    text-align: left;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.aws-slide {
+    background-color: #232833;
+    color: white;
+}
+
+.google-cloud-slide {
+    background-color: #171717;
+    color: white;
+}
+
+.red-hat-slide {
+    background-color: #A1A3B1;
+    color: white;
+}
+
+.azure-slide {
+    background-color: #4F75F8;
+    color: white;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+.logo-container img {
+    max-width: 100px;
+    height: auto;
+}
+
+.aws-developer-image {
+    max-width: 150px;
+    height: auto;
+    padding-left: 250px;
+}
+
+.red-hat-image {
+    max-width: 300px;
+    height: auto;
+    padding-left: 250px;
+}
+
+.google-cloud-image {
+    max-width: 150px;
+    height: auto;
+    padding-left: 250px;
+}
+
+.azure-dev-image {
+    max-width: 150px;
+    height: auto;
+    padding-left: 250px;
+}
+
+.logo-container img[alt="AWS Logo"] {
+    max-width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-container img[alt="Google Cloud Logo"] {
+    max-width: 200px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.logo-container img[alt="Azure Logo"] {
+    max-width: 300px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-container img[alt="Red Hat Logo"] {
+    max-width: 300px;
+    height: auto;
+    margin-right: 10px;
+}
+.error-bar {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    background-color: rgb(255, 255, 255);
+    color: red;
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+    transition: display 0.5s;
+}
+.contact-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #EB9752;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.contact-menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.contact-button:hover + .contact-menu,
+.contact-menu:hover {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #EB9752;
+    transition: transform 0.3s;
+}
+
+.contact-item:hover {
+    transform: scale(1.2);
+}
+
+.container {
+    display: none;
+}
+.trending-certification-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-left: 40px;
+    width: 97%;
+    overflow-y: hidden;
+}
+.trending-heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.trending-card-display {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    margin-left: 20px;
+    width: calc(20% - 40px);
+    cursor: pointer;
+    position: relative;
+}
+
+.trending-card-display:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.trending-cert-info-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.trending-cert-org-logo, .trending-cert-badg-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.trending-cert-badg-logo {
+    margin-left: auto;
+}
+
+.trending-cert-org-logo img, .trending-cert-badg-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.trending-cert-info {
+    margin-top: 10px;
+}
+
+.trending-cert-info h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.trending-view-course-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #1E3753;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.trending-view-course-button:hover {
+    background-color: #142238;
+}
+
+.trending-view-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: rgb(210, 210, 210);
+    display: flex;
+    align-items: center;
+}
+
+.trending-view-counter .fas {
+    margin-right: 5px;
+    margin-top: 2px;
+    color: rgb(210, 210, 210);
+}
+.trending-close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.trending-close-button:hover,
+.trending-close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+button#trending-viewMoreButton {
+    display: block;
+    margin: 20px auto;
+    margin-left: 70%;
+    padding: 10px 20px;
+    background-color: #1E3753;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#trending-viewMoreButton:hover {
+    background-color: #142238;
+}
+.trending-popup {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.trending-popup-content {
+    height: 100%;
+    overflow-y: auto;
+}
+.trending-popup-certification-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 20px;
+    overflow-y: hidden;
+}
+.trending-popup-card-display {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    margin-left: 20px;
+    width: calc(20% - 40px);
+    cursor: pointer;
+    position: relative;
+}
+.notification-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #EB9752;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.notification-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #E57717;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+.notification-popup {
+    display: none;
+    position: fixed;
+    top: 180px;
+    right: 60px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.notification-popup.show {
+    display: block;
+}
+
+.notification-popup.expanded {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.notification-item.hidden {
+    display: none;
+}
+
+.notification-item p {
+    margin: 0;
+}
+
+.notification-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.notification-certification {
+    font-size: 1em;
+    color: #555;
+}
+
+.notification-email, .notification-contact {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.notification-email i, .notification-contact i {
+    color: #E57717;
+}
+
+.notification-email a, .notification-contact a {
+    color: grey;
+    text-decoration: none;
+}
+
+.notification-email a:hover, .notification-contact a:hover {
+    text-decoration: underline;
+}
+.view-more {
+    text-align: center;
+    padding: 10px;
+}
+
+.view-more button {
+    background-color: #E57717;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-more button:hover {
+    background-color: #D46614;
+}
+
+.no-queries-button {
+    background-color: #1E3753;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.no-queries-button:hover {
+    background-color: #142238;
+}

@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('/static/images/bgimg.png');
+    background-size:350px 270px;
+    background-position: 620px 250px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+nav {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0.5em;
+    text-align: center;
+    width:100%;
+}
+
+.Company-logo img {
+    max-width: 75px;
+    height: 55px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    padding: 1em;
+    margin: 0 0.5em;
+    cursor: pointer;
+}
+.nav-links.Connect a {
+    cursor: pointer;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar-input {
+    flex: 1;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #F5EDED;
+    margin-left: 30%;
+    margin-right: 10px;
+    width: 700px;
+    height: 30px;
+    text-align: center;
+}
+.search-icon{
+    border-radius:5px;
+    background-color: white;
+    border: 1px solid black;
+    width: 50px;
+    height: 33px;
+    left:30%;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+.user-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+    background-color: #EB9752; 
+    margin-left: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-initial {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 60px; /* Adjust this value as needed */
+    right: 10px; /* Ensure it's aligned with the user circle */
+    border-radius: 10px; /* Add some border radius for a rounded appearance */
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 12px; 
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.user-circle:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown-content a[href="/logout"] {
+    color: #E53935; 
+    font-weight: bold; 
+}
+.dropdown-content a[href="/logout"]:hover {
+    background-color: #FDD; 
+}
+.Sign-button button {
+    background-color: #232833;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.background-bar {
+    background-color: #1E3753;
+    width: 100%;
+    height: 20px; 
+    position: fixed;
+    top: 65px;
+    z-index: 999;
+}
+.regpopup {
+    display: none;
+    position: fixed;
+    top: 35%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    width: 390px;
+    height:300px;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+    border-radius: 20px; /* Add border-radius for curves */
+}
+.admin-register-form {
+    width: 370px;
+    height: 270px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.admin-register-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.admin-register-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.register-button {
+    background-color: #1E3753;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;    
+    font-size: 1.2em;
+    width: 100%; /* Make the button full width */
+}
+.Signup-text{
+    position: absolute;
+    left: 55%;
+    top : 49%;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.error-bar {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    background-color: rgb(255, 255, 255);
+    color: red;
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+    transition: display 0.5s;
+}
+
+.profile-container {
+    position: fixed; /* Fixed positioning */
+    top: 15%; /* Adjust the top position based on your navbar height */
+    left: 5%; /* Adjusted left position */
+    width: 25%;
+    height: auto;
+    z-index: 1000; 
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 0px 0px 10px rgba(235, 151, 82, 0.8);
+}
+
+.profile-container:hover {
+    transform: scale(1.02); /* Scale up on hover */
+}
+
+.profile-details {
+    margin-top: 40%;
+    margin-left: 25px;
+}
+.profile-details h2{
+	font-family: 'Salsa', sans-serif;
+	font-size: 20px;
+}
+.profile-details p{
+	font-family: 'Salsa', sans-serif;
+	font-size: 20px;
+	color: grey;
+	margin-left : 15px;
+}
+.profile-contents{
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+	cursor: pointer;
+	
+}
+.edit-icon{
+	font-size: 1.50em;
+	margin-left: 85%;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.profile-content {
+    position: fixed; 
+    top: 20%; 
+    left: 35%;
+    width: 63%;
+    height: calc(100vh - 150px);
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+.update-button {
+    text-align: center;
+    margin-top: 10px; 
+    margin-bottom : 10px;
+}
+
+.update-button button {
+    width:20%;
+    height:40px;
+    background-color: #1E3753; 
+    font-family: 'Salsa', sans-serif;
+    color: #fff;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-certification {
+    display: inline-block;
+    background: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-left: 45%; 
+    box-shadow: 0 4px 10px rgba(30, 55, 83, 0.5), 0 0 10px rgba(235, 151, 82, 0.5);
+    cursor: pointer;
+}
+
+.add-certification a {
+    text-decoration: none;
+    color: transparent;
+    font-size: 20px;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;
+    background: -webkit-linear-gradient(45deg, #1E3753, #EB9752);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.add-certification a i {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: transparent;
+    background: -webkit-linear-gradient(45deg, #1E3753, #EB9752);
+    -webkit-background-clip: text;
+}
+
+
+.add-certification a i {
+    margin-right: 0px;
+    font-size: 20px;
+    font-weight: 1000;
+}
+.add-certification {
+    margin-left: 75%; 
+}
+.admincert {
+    display: none;
+    position: fixed;
+    top: 55%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height:580px;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+    border-radius: 20px; 
+}
+.admincert-form {
+    width: 370px;
+    height: 570px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+}
+
+.admincert-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.admincert-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.admincert-button {
+    background-color: #1E3753;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%;
+}
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 2em; 
+    color: black; 
+    z-index: 1001;
+}
+.certifications-cards-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; 
+    margin-top: 10px;
+    margin-left: 25px;
+    width: 90%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+.certifications-cards-content > *:nth-child(n+5) {
+    display: none; 
+}
+
+
+.certification-card {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+}
+
+.cert-card {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 155px;
+    height: 160px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+}
+
+.certification-badge {
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.certification-badge img {
+    width: 100%;
+    height: 100%;
+    margin-right: 20%;
+}
+.profile-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.more-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #1E3753;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.more-link {
+    background-color: #142238;
+}
+
+
+.certifications-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 25%;
+    border: 1px solid #888;
+    width: 50%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    overflow-x: auto;
+}
+.cert-close-button {
+    position: absolute;
+    top: 13%;
+    right: 27%;
+    cursor: pointer;
+    font-size: 2em; 
+    color: black; 
+    z-index: 1001;
+}
+.profile-certification-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    width: 100%;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.profile-card-display {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin:10px;
+    width: calc(85% - 20px);
+    max-width: 300px;
+    cursor: pointer;
+    position: relative;
+    display: none; 
+}
+
+.profile-card-display:nth-child(-n+3) {
+    display: block;
+}
+
+.profile-card-display:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.profile-cert-info-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile-cert-org-logo, .profile-cert-badg-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.profile-cert-badg-logo {
+    margin-left: auto;
+}
+
+.profile-cert-org-logo img, .profile-cert-badg-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.profile-cert-info {
+    margin-top: 10px;
+}
+
+.profile-cert-info h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.profile-view-course-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #1E3753;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.profile-view-course-button:hover {
+    background-color: #142238;
+}
+.profile-popup {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.profile-popup-content {
+    height: 100%;
+    overflow-y: auto;
+}
+.profile-popup-certification-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    margin-left: 20px;
+    overflow-y: hidden;
+}
+.profile-popup-card-display {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    margin-left: 20px;
+    width: calc(20% - 40px);
+    cursor: pointer;
+    position: relative;
+}
+.profile-close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-close-button:hover,
+.profile-close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

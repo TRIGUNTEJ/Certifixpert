@@ -1,0 +1,795 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('/static/images/bgimg.png');
+    background-size:350px 270px;
+    background-position: 620px 250px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+.admin-background-bar {
+    background-color: #1E3753; 
+    width: 100%; 
+    height: 55px; 
+    position: fixed; 
+    top: 5px; 
+    z-index: 999; 
+}
+.admin-back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 10px;
+    align-items: center;
+}
+.admin-back-button i {
+    margin-right: 8px;
+}
+.background-bar {
+    background-color: #1E3753;
+    width: 100%;
+    height: 55px;
+    position: fixed;
+    top:6px;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px; 
+}
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    margin-top: 8px;
+    margin-left: 10px;
+    align-items: center;
+}
+.back-button i {
+    margin-right: 8px;
+}
+.left-container {
+    display: flex;
+    align-items: center;
+}
+
+.right-container {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.subscribe-button {
+    background-color: #EB9752;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+.subscribe-button i {
+    margin-right: 20px;
+}
+.subscribe-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.regpopup {
+    display: none;
+    position: fixed;
+    top: 35%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    width: 390px;
+    height:300px;
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+    border-radius: 20px; /* Add border-radius for curves */
+}
+.admin-register-form {
+    width: 370px;
+    height: 270px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.admin-register-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.admin-register-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.register-button {
+    background-color: #1E3753;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%; /* Make the button full width */
+}
+.certpopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px; /* Adjusted width */
+    max-height: 80%; /* Maximum height of the popup */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    background-color: white;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1500; /* Higher z-index to display over other contents */
+    border-radius: 20px; /* Add border-radius for curves */
+}
+
+.certification-form {
+    width: 370px; /* Adjusted width to fit the popup */
+    height: 100%; /* Set height to 100% */
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    position: relative; /* Change position to relative */
+    margin: 20px auto; /* Center the popup vertically */
+    padding-right: 20px; /* Add padding to accommodate scrollbar if needed */
+    overflow-y: auto; /* Enable vertical scrolling for overflowed content */
+}
+
+.certification-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.certification-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.certification-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.certification-form input,
+.certification-form textarea {
+    width: calc(100% - 20px); /* Adjust width to accommodate label */
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-certification-button {
+    background-color: #1E3753;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%; 
+ }
+
+
+.close-button {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 2em; /* Increase the font size as needed */
+    color: black; /* Change the color if desired */
+    z-index: 1001;
+}
+
+.Signup-text{
+    position: absolute;
+    left: 55%;
+    top : 49%;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.error-bar {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    background-color: rgb(255, 255, 255);
+    color: red;
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+    transition: display 0.5s;
+}
+.user-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+    background-color: #EB9752; /* Default color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-initial {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000; /* Set a higher z-index value */
+    top: 60px; /* Adjust this value as needed */
+    right: 10px; /* Ensure it's aligned with the user circle */
+    border-radius: 10px; /* Add some border radius for a rounded appearance */
+}
+
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 12px; /* Add padding to the links */
+    z-index: 1000;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd; /* Change the background color on hover */
+}
+
+.user-circle:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown-content a[href="/logout"] {
+    color: #E53935; 
+    font-weight: bold; 
+}
+.dropdown-content a[href="/logout"]:hover {
+    background-color: #FDD; 
+}
+.content {
+    position: fixed; 
+    top: 10%; 
+    left: 5%;
+    width: 95%;
+    min-height: 100px; 
+    max-height: calc(100vh - 100px); 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.organization-logo img{
+	width: 100px;
+	height: 100px;
+	margin-top: 20px;
+}
+.certification-header {
+    display: flex;
+   
+}
+.certification-name {
+    font-family: 'Times New Roman', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+    color: #333;
+    text-align: left;
+}
+.certification-code {
+    font-family: 'Times New Roman', sans-serif;
+    font-weight: 300;
+    font-size: 1.5em;
+    color: #666;
+    text-align: left;
+    margin-top:27.5px;
+    margin-left: 10px;
+}
+
+.certification-info {
+    position: absolute;
+    top: 0px; /* Adjust as needed */
+    left: 60%; /* Adjust as needed */
+    width: 50%; /* Adjust as needed */
+    height: auto;
+    margin-top:10px;
+}
+
+.exam-details {
+    display: flex;
+    flex-direction: row; /* Adjust to stack vertically */
+    margin-right: 10px;
+    
+}
+
+.info-section {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 30px;
+    
+}
+
+.info-section h2 {
+    font-size: 1em;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.info-section p {
+    font-size: 0.9em; /* Adjust as needed */
+    color: #555; /* Grey color font */
+    font-family: 'Encode Sans Condensed', sans-serif;
+    justify-content: center;
+}
+.certification-image {
+    display: inline-block;
+    vertical-align: top;
+    margin-left : 10%;
+    margin-top:10px;
+    width: 250px;
+    
+}
+.certification-image img{
+	width: 80%; 
+    height: auto; 
+}
+
+.description-container1 {
+    display: inline-block;
+    vertical-align: top; 
+    width: 35%; 
+    height: auto;
+    margin-top: 40px; 
+    margin-left: 28%; 
+}
+
+.description-container2, .description-container3 {
+    display: inline-block; 
+    vertical-align: top;
+    width: 35%; 
+    height: 30%;
+}
+
+.description-container2 {
+    margin-right: 5%; 
+}
+
+.description-container3 {
+    margin-left: 15%; 
+}
+.description-paragraph {
+    color: black;
+    font-family: 'Encode Sans Condensed', sans-serif; 
+}
+.certified-trainers-title {
+    font-size: 1.7em; 
+    font-family: 'Cambria', 'Cochin', 'Georgia', 'Times', 'Times New Roman', serif; /* Adjust the font family as needed */
+    color: #333; 
+    margin-bottom: 20px;
+}
+.admins-heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+button#admin-viewMoreButton {
+    display: block;
+    margin: 20px auto;
+    margin-left: 70%;
+    padding: 10px 20px;
+    background-color: #1E3753;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#admin-viewMoreButton:hover {
+    background-color: #142238;
+}
+.admin-popup {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 10%;
+    top: 20%;
+    width: 80%;
+    height: 50%;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.admin-popup-content {
+    height: 100%;
+    overflow-y: auto;
+}
+.admin-close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.admin-close-button:hover,
+.admin-close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.certified-admins-popup {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.certification-details-popup {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: calc(33% - 20px);
+    margin: 10px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    box-sizing: border-box;
+}
+.certified-admins {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    overflow: hidden;
+    max-height: 360px; 
+}
+
+.certification-details {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: calc(33% - 20px);
+    margin: 10px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.certification-details:nth-child(n+7) {
+    display: none;
+}
+
+
+.certification-date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.admin-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-info-left {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.admin-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.admin-email {
+    font-size: 1em;
+    color: rgb(136, 135, 135);
+}
+
+.admin-email a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.admin-email a:hover {
+    text-decoration: underline;
+}
+
+.admin-certid {
+    font-size: 0.9em;
+    color: grey;
+}
+
+.admin-info-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
+.score-meter {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.progress-circle {
+    stroke-dasharray: 251; 
+    stroke-dashoffset: 251; 
+    transition: stroke-dashoffset 2s linear;
+    stroke: #2b822b; 
+    stroke-width: 10;
+    fill: none;
+}
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: black;
+}
+
+
+.contact-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #EB9752;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.contact-menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.contact-button:hover + .contact-menu,
+.contact-menu:hover {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #EB9752;
+    transition: transform 0.3s;
+}
+
+.contact-item:hover {
+    transform: scale(1.2);
+}
+
+.container {
+    display: none;
+}
+.view-header{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.view-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #1E3753;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-left: 74%;
+}
+
+.view-link {
+    background-color: #142238;
+}
+.view-certification-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    width: 100%;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.view-card-display {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 100%; 
+    max-width: 300px; 
+    cursor: pointer;
+    position: relative;
+}
+.view-card-display:nth-child(-n+3) {
+    display: block;
+}
+.view-card-display:hover {
+    transform: scale(1.05);
+}
+
+.view-cert-info-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.view-cert-org-logo, .view-cert-badg-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.view-cert-badg-logo {
+    margin-left: auto;
+}
+
+.view-cert-org-logo img, .view-cert-badg-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.view-cert-info {
+    margin-top: 10px;
+}
+
+.view-cert-info h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+.view-popup {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 10%;
+    top: 20%;
+    width: 80%;
+    height: 70%;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.view-popup-content {
+    height: 100%;
+    overflow-y: auto;
+}
+.view-popup-certification-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 20px;
+    overflow-y: hidden;
+}
+.view-popup-card-display {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    margin-top: 20px    ;
+    margin-left: 20px;
+    width: calc(30% - 40px);
+    cursor: pointer;
+    position: relative;
+}
+.view-close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.view-close-button:hover,
+.view-close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
